@@ -9,3 +9,15 @@ jobs:
     - name: hello world
       run: |
         docker build -t helloworld-python-app .
+    - name: Azure container scan
+    - uses: Azure/container-scan@v0
+      with:
+        image-name: helloworld-python-app
+    - name: Publis to asure container registry
+    - uses: Azure/docker-login@v1
+      with:
+        login-server: ${{ secrets.ACR_ENDPOINT }}
+        username: ${{ secrets.ACR_USERNAME }}
+        password: ${{ secrets.ACR_PASSWORD }}
+    
+    - run: docker push ${{ secrets.ACR_ENDPOINT }}/helloworld:ue19

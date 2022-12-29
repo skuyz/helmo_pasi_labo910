@@ -16,7 +16,7 @@ jobs:
     - name: Publis to asure container registry
       uses: Azure/docker-login@v1
       with:
-        login-server: ${{ secrets.ACR_ENDPOINT }}
+        login-server: acrue19.azurecr.io
         username: ${{ secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
     

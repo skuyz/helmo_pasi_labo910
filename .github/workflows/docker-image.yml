@@ -13,11 +13,11 @@ jobs:
       uses: Azure/container-scan@v0
       with:
         image-name: helloworld-python-app
-    - name: Publis to asure container registry
+    - name: Connect to ACR
       uses: Azure/docker-login@v1
       with:
         login-server: acrue19.azurecr.io
         username: ${{ secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
-    
-    - run: docker push ${{ secrets.ACR_ENDPOINT }}/helloworld:ue19
+    - run: docker tag helloworld-python-app acrue19.azurecr.io/helloworld-python-app
+    - run: docker push acrue19.azurecr.io/helloworld-python-app

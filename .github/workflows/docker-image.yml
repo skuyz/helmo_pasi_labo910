@@ -1,4 +1,4 @@
-name: Helloworld-python app docker build
+name: helloworld-python app docker build
 on: [push]
 jobs:
   Check-and-build-Hellowrld-python:
@@ -6,6 +6,6 @@ jobs:
     steps:
     - name: Check out repository code
       uses: actions/checkout@v3
-    - name: Hello world
+    - name: hello world
       run: |
-        docker build -t Helloworld-python-app .
+        docker build -t helloworld-python-app .
